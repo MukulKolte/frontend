@@ -6,27 +6,27 @@ function Footer() {
         // <!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com --> 
         // <!-- Footer container -->
         <>
-            <div className='flex mt-[125px] h-[225px]'>
-                <div className='w-1/3 bg-zinc-400 text-center pt-[20px]'>
-                    <div className='text-xl py-[10px]'>OnePlace</div>
-                    <div className='text-xl py-[10px]'>Company</div>
-                    <div className='text-lg py-[10px]'>About Us</div>
+            <div className='flex mt-[125px] h-[250px]'>
+                <div className='w-1/3 bg-neutral-500 text-center pt-[20px]'>
+                    <div className='text-xl py-[10px] text-white'>OnePlace</div>
+                    <div className='text-xl py-[10px] text-white'>Company</div>
+                    <div className='text-lg py-[10px] text-white'>About Us</div>
                 </div>
-                <div className='w-1/3 bg-zinc-400'>
+                <div className='w-1/3 bg-neutral-500 text-white'>
                     <div className='text-xl text-center pt-[20px]'>Our Products</div>
-                    <ol className='text-center'>
-                        <li>Mathematics SSC</li>
-                        <li>History SSC</li>
-                        <li>Geography SSC</li>
-                        <li>English SSC</li>
-                        <li>Science1 SSC</li>
+                    <ol className='text-center pt-6'>
+                        <li className='pt-2'>Mathematics SSC</li>
+                        <li className='pt-2'>History SSC</li>
+                        <li className='pt-2'>Geography SSC</li>
+                        <li className='pt-2'>English SSC</li>
+                        <li className='pt-2'>Science1 SSC</li>
                     </ol>
                 </div>
-                <div className='w-1/3 bg-zinc-400'>
-                    <div className='text-xl pt-[20px] text-center'>Community Blogs</div>
+                <div className='w-1/3 bg-neutral-500'>
+                    <div className='text-xl pt-[20px] text-center text-white'>Community Blogs</div>
                 </div>
             </div>
-            <div className='text-right bg-orange-300 py-[20px]'>
+            <div className='text-right bg-neutral-700 py-[20px]'>
 
                 {/* Twitter Icon */}
 
