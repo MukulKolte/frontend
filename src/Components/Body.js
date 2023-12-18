@@ -1,13 +1,15 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
+
 
 function Body() {
   return (
-    <div className='bg-sky-100'>
+    <div className='bg-sky-100' >
       <div className='text-center w-[40%] h-fit mx-[30%] my-10'>
         <p className='text-5xl font-semibold my-10 pt-2.5'>Please select the relevant options</p>
         <div>
           <button
-            className="text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-lg pl-5 py-2.5 mb-4 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-[450px]" type="button">
+            className="animation text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-lg pl-5 py-2.5 mb-4 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-[450px]" type="button">
             Standard <svg className="w-2.5 h-2.5 ms-[19.75rem]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
             </svg>
@@ -33,10 +35,10 @@ function Body() {
         </div>
 
         <div>
-          <button
+          <Link to='/history'
             className="text-center rounded-lg text-white bg-indigo-500 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-lg pl-[5.25rem] py-2.5 mb-[30px] inline-flex items-center dark:bg-blue-600 mt-6 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-60" type="button">
             Submit
-          </button>
+          </Link>
         </div>
       </div >
       <div className='text-center pt-[25px]'>
