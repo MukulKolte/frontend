@@ -3,6 +3,8 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 import Loginpage from './Loginpage'
 import { BreadcrumbHistory } from './Breadcrumbs'
+import Joiningoptions from './Joiningoptions'
+import Exploremore from './Exploremore'
 
 function Historypapers() {
 
@@ -83,6 +85,12 @@ function Historypapers() {
             </div>
           </form>
         </div>
+      </div>
+      <div className='mt-[150px]'>
+      <Joiningoptions />
+      </div>
+      <div>
+        <Exploremore />
       </div>
       <Footer />
 
