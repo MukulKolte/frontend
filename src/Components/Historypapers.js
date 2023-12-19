@@ -80,7 +80,8 @@ function Historypapers() {
                 </ol>
               </div>
 
-              <button className='mb-[100px] mt-[50px] px-[10px] w-[150px] h-[50px] bg-cyan-500 text-xl' onClick={event => dataAgaya()} type='submit'>Login</button>
+              <button className='mb-[100px] mt-[50px] px-[10px] w-[150px] h-[50px] bg-cyan-500 text-xl' type='submit'>Login</button>
+              <button className='mb-[100px] mt-[50px] px-[10px] w-[150px] h-[50px] bg-cyan-500 hidden text-xl' onClick={event => dataAgaya()} type='submit'></button>
 
             </div>
           </form>

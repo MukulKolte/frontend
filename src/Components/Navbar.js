@@ -13,7 +13,7 @@ function Navbar() {
                     <Link to='/about-us' className='btn float-left bg-amber-400 w-40 text-xl text-center pt-[32px] hover:bg-green-500'> About Us</Link>
                     <Link to='/login' className='btn float-left bg-amber-400 w-40 text-xl text-center pt-[32px] hover:bg-green-500'> Blogs</Link>
                     <Link to='/login' className='btn float-left bg-amber-400 w-40 text-xl text-center pt-[32px] hover:bg-green-500'> Contact Us</Link>
-                    <Link to='/login' className='btn float-left bg-amber-400 w-40 text-xl text-center pt-[32px] hover:bg-green-500 mr-[50px]'>Profile</Link>
+                    <Link className='btn float-left bg-amber-400 w-40 text-xl text-center pt-[32px] hover:bg-green-500 mr-[50px]'>Profile</Link>
                 </div>
             </div>
             {/* <div>
