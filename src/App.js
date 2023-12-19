@@ -4,6 +4,7 @@ import Loginpage from './Components/Loginpage';
 import Homepage from './Components/Homepage';
 import Historypapers from './Components/Historypapers';
 import AboutUs from './Components/AboutUs';
+import Contentscreen from './Components/Contentscreen';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path='/login' element={<Loginpage />} />
         <Route path='/history' element={<Historypapers />} />
         <Route path='/about-us' element={<AboutUs />} />
+        <Route path='/content' element={<Contentscreen />} />
       </Routes>
     </BrowserRouter>
     </>
