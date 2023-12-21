@@ -5,6 +5,7 @@ import Homepage from './Components/Homepage';
 import Historypapers from './Components/Historypapers';
 import AboutUs from './Components/AboutUs';
 import Contentscreen from './Components/Contentscreen';
+import Fetchdata from './Components/Fetchdata';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path='/history' element={<Historypapers />} />
         <Route path='/about-us' element={<AboutUs />} />
         <Route path='/content' element={<Contentscreen />} />
+        <Route path='/test' element={<Fetchdata />} />
       </Routes>
     </BrowserRouter>
     </>
