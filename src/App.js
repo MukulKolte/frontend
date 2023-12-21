@@ -14,7 +14,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Homepage />} />
         <Route path='/login' element={<Loginpage />} />
-        <Route path='/history' element={<Historypapers />} />
+        <Route path='/history-question-paper' element={<Historypapers />} />
         <Route path='/about-us' element={<AboutUs />} />
         <Route path='/content' element={<Contentscreen />} />
         <Route path='/test' element={<Fetchdata />} />

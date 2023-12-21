@@ -39,7 +39,7 @@ function Body() {
     form.elements['std'].value === "10th" &&
     form.elements['med'].value === "English"){
       console.log("going to history page..")
-      navigate('/history');
+      navigate('/history-question-paper');
     }else{
       console.log('Not configured yet..')
     }
