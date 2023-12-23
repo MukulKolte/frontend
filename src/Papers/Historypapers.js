@@ -1,10 +1,10 @@
 import React from 'react';
-import Navbar from './Navbar';
-import Footer from './Footer';
+import Navbar from '../Components/Navbar';
+import Footer from '../Components/Footer';
 import axios from 'axios';
-import { BreadcrumbHistory } from './Breadcrumbs';
-import Joiningoptions from './Joiningoptions';
-import Exploremore from './Exploremore';
+import { BreadcrumbHistory } from '../Components/Breadcrumbs';
+import Joiningoptions from '../Components/Joiningoptions';
+import Exploremore from '../Components/Exploremore';
 import { useState, useEffect } from 'react'
 
 function Historypapers() {
@@ -12,50 +12,64 @@ function Historypapers() {
   //For fetching data
   const API_hisory_paper = 'https://padhaiplanet-backend.onrender.com/v1/get-question?subject=english&medium=a&standard=10 ';
 
-  const [agayaData, setAgayaData] = useState([])
+  //API data hooks
+  const [que_data, setQue_data] = useState([]);
+  const [sol_data, setSol_data] = useState([]);
 
-  const fetchdata = async (url) => {
-      try{
-          const res = await fetch(url);
-          const data = await res.json();
-          console.log(data.data[0]);
-          setAgayaData(data.data[0].papers[0].question_url)
-      }catch (e){
-          console.log(e)
-      }
+
+  const [data, setData] = useState([])
+
+  //Assigning 
+  const fetchData = async (url) => {
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+      setData(data.data);
+
+
+    } catch (e) {
+      console.log(e)
+    }
   }
 
+  const data_imp = []
+  console.log(data['length']);
+  for (var j = 0; j < data['length']; j++) {
+    data_imp.push(data[j])
+  }
+  console.log(data_imp)
+
+
   useEffect(() => {
-      fetchdata(API_hisory_paper);
+    fetchData(API_hisory_paper);
   }, [])
 
 
 
 
 
-  function HandleClick(item) {
-    if (item === "bad") {
+  function HandleClick(login_state, paper_no, item) {
+    if (login_state==="not_logged_in") {
       document.getElementById("pop").classList.remove('hidden');
       document.getElementById("pop").classList.add('opacity-90');
     }
     else {
-      document.getElementById("popgood").classList.remove('hidden');
+      document.getElementById("que_paper_screen").classList.remove('hidden');
+      setQue_data(data_imp[item].papers[paper_no].question_url);
     }
   }
 
-  function dataAgaya() {
-    document.getElementById("pop").classList.add('hidden');
-  }
 
   const submitHandler = (event) => {
     event.preventDefault();
+    document.getElementById("pop").classList.add('hidden');
     const userName = event.target.uname.value;
     const userPhnNumber = event.target.uphnnum.value;
     const userEmail = event.target.uemail.value;
     const userPass = event.target.upass.value;
     axios.post('https://padhaiplanet-backend.onrender.com/v1/signup', {
       'name': userName,
-      'email':userEmail,
+      'email': userEmail,
       'phone': userPhnNumber,
       'password': userPass
     })
@@ -76,27 +90,21 @@ function Historypapers() {
         <div id='go' className=' top-0 w-full mt-[50px]'>
           <h1 className='text-center text-3xl font-bold'>History</h1>
           <div className='w-[50%] ml-[25%]'>
+
+            {data_imp.map((item, index) => 
             <div className='w-[50%] ml-[25%] mt-[100px]'>
-              <div className='w-[100px] h-[50px] text-center pt-[12.5px] text-xl font-semibold bg-amber-400'>2022</div>
+              <div className='w-[100px] h-[50px] text-center pt-[12.5px] text-xl font-semibold bg-amber-400'>{item.year}</div>
               <div className='flex'>
-                <button onClick={event => HandleClick("bad")} type='submit' className='w-[250px] text-white h-[100px] text-center font-medium mt-[50px] bg-lime-600'>Histroy Q Paper</button>
-                <button onClick={event => HandleClick("good")} type='submit' className='w-[250px] text-white h-[100px] text-center font-medium mt-[50px] bg-lime-600 ml-[120px]'>Histroy Q Paper</button>
+                <div className='block'>
+                <button onClick={event => HandleClick("not_logged_in", 0, index)} type='submit' className='w-[250px] text-white h-[100px] text-center font-medium mt-[50px] bg-lime-600' key={index}>{item.papers[0]['name']} Q Paper</button>
+                <a href={item.papers[0]['solution_url']} target='_blank' type='button' className='w-[250px] text-white h-[50px] text-center font-medium pt-[4%] mt-[25px] bg-blue-500' key={index}>{item.papers[0]['name']} Solution</a>
+                </div>
+                <div className='block'>
+                <button onClick={event => HandleClick("logged_in", 1, index)} type='submit' className='w-[250px] text-white h-[100px] text-center font-medium mt-[50px] bg-lime-600 ml-[120px]' key={index}>{item.papers[1]['name']} Q Paper</button>
+                <a href={item.papers[0]['solution_url']} target='_blank' type='button' className='w-[250px] text-white h-[50px] text-center font-medium mt-[25px] pt-[3%] bg-blue-500 ml-[120px]' key={index}>{item.papers[1]['name']} Solution</a>
+                </div>
               </div>
-            </div>
-            <div className='w-[50%] ml-[25%] mt-[40px]'>
-              <div className='w-[100px] h-[50px] text-center pt-[12.5px] text-xl font-semibold bg-amber-400'>2021</div>
-              <div className='flex'>
-                <button type='submit' className='w-[250px] text-white h-[100px] text-center font-medium mt-[50px] bg-lime-600'>Histroy Q Paper</button>
-                <button type='submit' className='w-[250px] text-white h-[100px] text-center font-medium mt-[50px] bg-lime-600 ml-[120px]'>Histroy Q Paper</button>
-              </div>
-            </div>
-            <div className='w-[50%] ml-[25%] mt-[40px]'>
-              <div className='w-[100px] h-[50px] text-center pt-[12.5px] text-xl font-semibold bg-amber-400'>2020</div>
-              <div className='flex'>
-                <button type='submit' className='w-[250px] text-white h-[100px] text-center font-medium mt-[50px] bg-lime-600'>Histroy Q Paper</button>
-                <button type='submit' className='w-[250px] text-white h-[100px] text-center font-medium mt-[50px] bg-lime-600 ml-[120px]'>Histroy Q Paper</button>
-              </div>
-            </div>
+            </div>)}
           </div>
         </div>
 
@@ -135,16 +143,15 @@ function Historypapers() {
                 </ol>
               </div>
 
-              <button className='mb-[100px] mt-[50px] px-[10px] w-[150px] h-[50px] bg-cyan-500 text-xl' type='submit'>Login</button>
-              <button className='mb-[100px] mt-[50px] px-[10px] w-[150px] h-[50px] bg-cyan-500 hidden text-xl' onClick={event => dataAgaya()} type='submit'></button>
+              <button className='mb-[100px] mt-[50px] px-[10px] w-[150px] h-[50px] bg-cyan-500 text-xl' type='submit'>Sign up</button>
             </form>
           </div>
 
         </div>
 
-        <div id="popgood" className='absolute top-0 w-full hidden pb-[20px]'>
+        <div id="que_paper_screen" className='absolute top-0 w-full hidden pb-[20px]'>
           <div className='bg-orange-400 w-[50%] ml-[25%] mt-[25px] text-center h-[1000px] overflow-scroll'>
-            <div><embed className='w-[100%] h-screen' src={agayaData} />
+            <div><iframe className='w-[100%] h-screen' src={que_data} /> <a href={sol_data} target='_blank'>Click here to view youtube video</a>
             </div>
           </div>
         </div>
