@@ -33,7 +33,7 @@ function App() {
         <Routes>
           <Route exact  path='/blogs' element={<Blogs />} />
           <Route exact  path='/' element={<Homepage />} />
-          <Route path='/*' element={<Homepage />} />
+          <Route path='*' element={<Homepage />} />
           <Route exact  path='/login' element={<Loginpage />} />
           <Route exact  path='/history-and-political-science-question-papers' element={<Historypapers />} />
           <Route exact  path='/english-question-papers' element={<Englishpapers />} />
