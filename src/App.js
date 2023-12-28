@@ -29,7 +29,7 @@ import ContactUs from './Components/ContactUs';
 function App() {
   return (
     <>
-      <HashRouter>
+      <BrowserRouter>
         <Routes>
           <Route exact  path='/blogs' element={<Blogs />} />
           <Route exact  path='/' element={<Homepage />} />
@@ -58,7 +58,7 @@ function App() {
           <Route path='/Importance-of-Planning' element={<Blog5 />} />
           <Route path='/How-easy-is-it-to-crack-Class-10-examination?' element={<Blog6 />} />
         </Routes>
-      </HashRouter>
+      </BrowserRouter>
       
      
     </>
