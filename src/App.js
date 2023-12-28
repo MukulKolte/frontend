@@ -31,14 +31,14 @@ function App() {
     <>
       <HashRouter>
         <Routes>
-          <Route path='/blogs' element={<Blogs />} />
-          <Route path='/' element={<Homepage />} />
+          <Route exact  path='/blogs' element={<Blogs />} />
+          <Route exact  path='/' element={<Homepage />} />
           <Route path="*" element={<Homepage />} />
-          <Route path='/login' element={<Loginpage />} />
-          <Route path='/history-and-political-science-question-papers' element={<Historypapers />} />
-          <Route path='/english-question-papers' element={<Englishpapers />} />
-          <Route path='/hindi-full-question-papers' element={<HindiFullpapers />} />
-          <Route path='/hindi-half-question-papers' element={<HindiHalfpapers />} />
+          <Route exact  path='/login' element={<Loginpage />} />
+          <Route exact  path='/history-and-political-science-question-papers' element={<Historypapers />} />
+          <Route exact  path='/english-question-papers' element={<Englishpapers />} />
+          <Route exact  path='/hindi-full-question-papers' element={<HindiFullpapers />} />
+          <Route exact  path='/hindi-half-question-papers' element={<HindiHalfpapers />} />
           <Route path='/sanskrit-full-question-papers' element={<SanskritFullpapers />} />
           <Route path='/sanskrit-half-question-papers' element={<SanskritHalfpapers />} />
           <Route path='/marathi-question-papers' element={<Marathipapers />} />
