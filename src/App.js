@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, HashRouter } from 'react-router-dom';
 import Loginpage from './Components/Loginpage';
 import Homepage from './Components/Homepage';
 import Historypapers from './Papers/Historypapers';
@@ -24,14 +24,16 @@ import Blog3 from './Components/Blogs/Blog3';
 import Blog4 from './Components/Blogs/Blog4';
 import Blog5 from './Components/Blogs/Blog5';
 import Blog6 from './Components/Blogs/Blog6';
+import ContactUs from './Components/ContactUs';
 
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path='/blogs' element={<Blogs />} />
           <Route path='/' element={<Homepage />} />
+          <Route path="*" element={<Homepage />} />
           <Route path='/login' element={<Loginpage />} />
           <Route path='/history-and-political-science-question-papers' element={<Historypapers />} />
           <Route path='/english-question-papers' element={<Englishpapers />} />
@@ -46,6 +48,7 @@ function App() {
           <Route path='/science-1-question-papers' element={<Science1 />} />
           <Route path='/science-2-question-papers' element={<Science2 />} />
           <Route path='/about-us' element={<AboutUs />} />
+          <Route path='/contact-us' element={<ContactUs />} />
           <Route path='/content' element={<Contentscreen />} />
           <Route path='/test' element={<Fetchdata />} />
           <Route path='/10th-Board-SSC-Exam-2024' element={<Blog1 />} />
@@ -55,7 +58,7 @@ function App() {
           <Route path='/Importance-of-Planning' element={<Blog5 />} />
           <Route path='/How-easy-is-it-to-crack-Class-10-examination?' element={<Blog6 />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
       
      
     </>

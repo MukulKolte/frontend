@@ -13,13 +13,13 @@ function Navbar() {
     return (
 
         <div className='flex'>
-            <div className="flex w-[50%] mr-[15%] font-sans text-white text-6xl font-bold py-4">
+            <div className="flex w-[50%] mr-15% font-sans text-white text-6xl font-bold py-4">
                 PadhaiPlanet
             </div>
-            <div className="text-right flex pl-72">
+            <div className="text-right flex pl-[42%]">
                 <Link
                     to="/about-us"
-                    className="gradient-text btn float-right font-medium font-sans text-white w-40 text-2xl text-center pt-[32px]"
+                    className="btn float-right font-medium font-sans text-white w-40 text-2xl text-center pt-[32px]"
                 >
                     {" "}
                     About Us
@@ -32,7 +32,7 @@ function Navbar() {
                     Blogs
                 </Link>
                 <Link
-                    to="/login"
+                    to="/contact-us"
                     className="btn float-left font-medium font-sans text-white w-40 text-2xl text-center pt-[32px] hover:bg-green-500"
                 >
                     {" "}
@@ -40,7 +40,7 @@ function Navbar() {
                 </Link>
                 <button
                     onClick={(event) => openLogoutPage()}
-                    className="btn float-left font-medium font-sans text-white w-40 text-2xl text-center hover:bg-green-500 mr-[50px]"
+                    className="btn float-left font-medium font-sans text-white w-40 text-2xl text-center hover:bg-green-500"
                 >
                     Profile
                 </button>
