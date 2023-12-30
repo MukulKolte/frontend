@@ -32,7 +32,7 @@ function App() {
   
   return (
     <>
-      <BrowserRouter basename='/frontend'>
+      <BrowserRouter >
         <Routes>
           <Route exact  path='/#blogs' element={<Blogs />} />
           <Route exact  path='/' element={<Homepage />} />
