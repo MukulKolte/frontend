@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Routes, Route, HashRouter } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, HashRouter, Router } from 'react-router-dom';
 import Loginpage from './Components/Loginpage';
 import Homepage from './Components/Homepage';
 import Historypapers from './Papers/Historypapers';
@@ -27,9 +27,12 @@ import Blog6 from './Components/Blogs/Blog6';
 import ContactUs from './Components/ContactUs';
 
 function App() {
+
+  console.log(window.location.pathname)
+  
   return (
     <>
-      <HashRouter>
+      <BrowserRouter >
         <Routes>
           <Route exact  path='/blogs' element={<Blogs />} />
           <Route exact  path='/' element={<Homepage />} />
@@ -58,7 +61,7 @@ function App() {
           <Route path='/Importance-of-Planning' element={<Blog5 />} />
           <Route path='/How-easy-is-it-to-crack-Class-10-examination?' element={<Blog6 />} />
         </Routes>
-      </HashRouter>
+      </BrowserRouter>
       
      
     </>

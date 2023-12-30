@@ -12,6 +12,9 @@ import Loader from '../Components/Loader.js';
 
 function Englishpapers() {
 
+  console.log(window.location.pathname)
+  console.log(window.location.hash)
+
   //For fetching data
   const API_hisory_paper = 'https://padhaiplanet-backend.onrender.com/v1/get-question?subject=english&medium=a&standard=10 ';
 
