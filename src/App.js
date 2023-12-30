@@ -34,7 +34,7 @@ function App() {
     <>
       <BrowserRouter >
         <Routes>
-          <Route exact  path='/blogs' element={<Blogs />} />
+          <Route exact  path='/#blogs' element={<Blogs />} />
           <Route exact  path='/' element={<Homepage />} />
           <Route path='*' element={<Homepage />} />
           <Route exact  path='/login' element={<Loginpage />} />
