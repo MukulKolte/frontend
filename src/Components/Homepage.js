@@ -3,41 +3,25 @@ import Body from "./Body";
 import Footer from "./Footer";
 import { BreadcrumbProfile, Breadcrumbhome } from "./Breadcrumbs";
 import Joiningoptions from "./Joiningoptions";
-import { Link } from "react-router-dom";
 import "../assets/style.css";
 import QuestionAnswer from "./QuestionAnswer";
 import Navbar from "./Navbar";
-import Profilepage from "./Profilepage";
+import StaticTag from "./StaticTag";
 
 function Homepage() {
-
-
   return (
     <div>
-      <div className="sticky top-0 flex z-10">
+      <div className="sticky top-0 z-10">
         <Navbar />
       </div>
-      
-      <div className="relative z-0">
-        <div>
-          <div id="home">
-            <Breadcrumbhome />
-          </div>
-          <div id="profile" className="hidden">
-            <BreadcrumbProfile />
-          </div>
-          <Body />
-          <Joiningoptions />
-        </div>
-        <Profilepage />
+      <div className="  lg:mr-[2%]">
+        <StaticTag />
       </div>
-
-      <div>
-        <QuestionAnswer />
-      </div>
-      <div className="z-2">
-        <Footer />
-      </div>
+      <Breadcrumbhome />
+      <Body />
+      <Joiningoptions />
+      <QuestionAnswer />
+      <Footer />
     </div>
   );
 }

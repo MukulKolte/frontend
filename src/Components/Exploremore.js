@@ -11,18 +11,18 @@ function Exploremore(props) {
 
   function handleClick(user_selected_option) {
   const page_mapping = {
-    'english': '/english-question-papers',
-    'hindi_full':'/hindi-full-question-papers',
-    'hindi_half':'/hindi-half-question-papers',
-    'sanskrit_full':'/sanskrit-full-question-papers',
-    'sanskrit_half':'/sanskrit-half-question-papers',
-    'marathi':'/marathi-question-papers',
-    'history_and_political_science':'/history-and-political-science-question-papers',
-    'geography':'/geography-question-papers',
-    'math_1':'/math-1-question-papers',
-    'math_2':'/math-2-question-papers',
-    'science_1':'/science-1-question-papers',
-    'science_2':'/science-2-question-papers',
+    'english': '/english-question-papers-10th-ssc',
+    'hindi_full':'/hindi-full-question-papers-10th-ssc',
+    'hindi_half':'/hindi-half-question-papers-10th-ssc',
+    'sanskrit_full':'/sanskrit-full-question-papers-10th-ssc',
+    'sanskrit_half':'/sanskrit-half-question-papers-10th-ssc',
+    'marathi':'/marathi-question-papers-10th-ssc',
+    'history_and_political_science':'/history-and-political-science-question-papers-10th-ssc',
+    'geography':'/geography-question-papers-10th-ssc',
+    'math_1':'/math-1-question-papers-10th-ssc',
+    'math_2':'/math-2-question-papers-10th-ssc',
+    'science_1':'/science-1-question-papers-10th-ssc',
+    'science_2':'/science-2-question-papers-10th-ssc',
   }
 
   navigate(page_mapping[user_selected_option]);
@@ -52,12 +52,13 @@ function Exploremore(props) {
 
 
   return (
-    <div className='w-[50%] ml-[28%] mt-[150px]'>
-      <h2 className='text-3xl w-[85%] text-center mb-[30px] font-semibold text-white'>Explore more question papers</h2>
-      <div className='flex flex-wrap max-w-[100%]'>
+    // <div className='w-[50%] xl:ml-[30%] lg:ml-[30%] md:ml-[30%] ml-[25%] mt-[150px]'>
+      <div className='w-[50%] inset-0 m-auto text-center mt-[150px]'>
+      <h2 className='xl:text-3xl lg:text-2xl md:text-2xl text-xl w-[100%] text-center mb-[30px] font-semibold text-white'>Explore more question papers</h2>
+      <div className='lg:flex lg:flex-wrap inset-0 m-auto md:block max-w-[100%]'>
       {subject.map((subjects) =>
-      <div className='my-[5%] w-[50%] h-[50px]'> 
-        <button onClick={event => (handleClick(subjects.key))} className='w-[300px] h-[70px] bg-blue-600 rounded-xl text-xl text-center font-semibold' key={subjects.key}>{subjects.value}</button>
+      <div className='my-[5%] lg:mb-[5%] mb-[15%] md:mb-[10%] lg:w-[50%] h-[50px]'> 
+        <button onClick={event => (handleClick(subjects.key))} className='xl:w-[300px] lg:w-[240px] md:w-[200px] w-[170px] h-[70px] bg-blue-600 rounded-xl text-xl text-center font-semibold' key={subjects.key}>{subjects.value}</button>
       </div>)}
       </div>
     </div>

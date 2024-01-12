@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Routes, Route, HashRouter, Router } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Router } from 'react-router-dom';
 import Loginpage from './Components/Loginpage';
 import Homepage from './Components/Homepage';
 import Historypapers from './Papers/Historypapers';
@@ -25,41 +25,41 @@ import Blog4 from './Components/Blogs/Blog4';
 import Blog5 from './Components/Blogs/Blog5';
 import Blog6 from './Components/Blogs/Blog6';
 import ContactUs from './Components/ContactUs';
+import Loader from './Components/Loader';
+import Profilepage from './Components/Profilepage';
 
 function App() {
-
-  console.log(window.location.pathname)
-  
   return (
     <>
-      <BrowserRouter >
+      <BrowserRouter>
         <Routes>
-          <Route exact  path='/#blogs' element={<Blogs />} />
-          <Route exact  path='/' element={<Homepage />} />
-          <Route path='*' element={<Homepage />} />
-          <Route exact  path='/login' element={<Loginpage />} />
-          <Route exact  path='/history-and-political-science-question-papers' element={<Historypapers />} />
-          <Route exact  path='/english-question-papers' element={<Englishpapers />} />
-          <Route exact  path='/hindi-full-question-papers' element={<HindiFullpapers />} />
-          <Route exact  path='/hindi-half-question-papers' element={<HindiHalfpapers />} />
-          <Route path='/sanskrit-full-question-papers' element={<SanskritFullpapers />} />
-          <Route path='/sanskrit-half-question-papers' element={<SanskritHalfpapers />} />
-          <Route path='/marathi-question-papers' element={<Marathipapers />} />
-          <Route path='/geography-question-papers' element={<Geographypapers />} />
-          <Route path='/math-1-question-papers' element={<Math1papers />} />
-          <Route path='/math-2-question-papers' element={<Math2papers />} />
-          <Route path='/science-1-question-papers' element={<Science1 />} />
-          <Route path='/science-2-question-papers' element={<Science2 />} />
+          <Route path='/blogs' element={<Blogs />} />
+          <Route path='/loader' element={<Loader />} />
+          <Route path='/' element={<Homepage />} />
+          <Route path='/login' element={<Loginpage />} />
+          <Route path='/history-and-political-science-question-papers-10th-ssc' element={<Historypapers />} />
+          <Route path='/english-question-papers-10th-ssc' element={<Englishpapers />} />
+          <Route path='/hindi-full-question-papers-10th-ssc' element={<HindiFullpapers />} />
+          <Route path='/hindi-half-question-papers-10th-ssc' element={<HindiHalfpapers />} />
+          <Route path='/sanskrit-full-question-papers-10th-ssc' element={<SanskritFullpapers />} />
+          <Route path='/sanskrit-half-question-papers-10th-ssc' element={<SanskritHalfpapers />} />
+          <Route path='/marathi-question-papers-10th-ssc' element={<Marathipapers />} />
+          <Route path='/geography-question-papers-10th-ssc' element={<Geographypapers />} />
+          <Route path='/math-1-question-papers-10th-ssc' element={<Math1papers />} />
+          <Route path='/math-2-question-papers-10th-ssc' element={<Math2papers />} />
+          <Route path='/science-1-question-papers-10th-ssc' element={<Science1 />} />
+          <Route path='/science-2-question-papers-10th-ssc' element={<Science2 />} />
           <Route path='/about-us' element={<AboutUs />} />
           <Route path='/contact-us' element={<ContactUs />} />
           <Route path='/content' element={<Contentscreen />} />
           <Route path='/test' element={<Fetchdata />} />
-          <Route path='/10th-Board-SSC-Exam-2024' element={<Blog1 />} />
-          <Route path='/SSC-Exam-Timetable-2024' element={<Blog2 />} />
+          <Route path='/10th-board-ssc-exam-2024' element={<Blog1 />} />
+          <Route path='/ssc-exam-timetable-2024' element={<Blog2 />} />
           <Route path='/10th-examination' element={<Blog3 />} />
-          <Route path='/Importance-of-10th' element={<Blog4 />} />
-          <Route path='/Importance-of-Planning' element={<Blog5 />} />
-          <Route path='/How-easy-is-it-to-crack-Class-10-examination?' element={<Blog6 />} />
+          <Route path='/importance-of-10th' element={<Blog4 />} />
+          <Route path='/importance-of-planning' element={<Blog5 />} />
+          <Route path='/how-easy-is-it-to-crack-class-10-examination?' element={<Blog6 />} />
+          <Route path='/login' element={<Profilepage />} />
         </Routes>
       </BrowserRouter>
       
