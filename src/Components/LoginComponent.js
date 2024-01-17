@@ -106,7 +106,7 @@ function LoginComponent() {
 
     axios
       .post("https://padhaiplanet-backend.onrender.com/v1/login", {
-        email_or_phone: userPhnNumber,
+        email_or_phone: signinname,
         password: userPass,
       })
       .then((response) => {
