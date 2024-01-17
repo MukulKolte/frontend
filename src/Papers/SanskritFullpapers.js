@@ -30,6 +30,7 @@ function SanskritFullPapers() {
       const data = await res.json();
       await sleep(3000);
       setData(data.data);
+      localStorage.setItem("data_sanskrit_full", JSON.stringify(data));
       document.getElementById("loader").classList.add("hidden");
       document.getElementById("parent").classList.remove("hidden");
       document.getElementById("explore").classList.remove("hidden");
@@ -39,19 +40,69 @@ function SanskritFullPapers() {
     }
   };
 
+
+  useEffect(() => {
+    topFunction();
+
+    const timestamp = localStorage.getItem('timestamp_sanskrit_full');
+    console.log(timestamp)
+
+    if (timestamp) {
+
+      const check = (new Date()).getDate() > JSON.parse(timestamp).expDate;
+
+      if (check) {
+
+        localStorage.removeItem('timestamp_sanskrit_full');
+
+        //Adding timestamp
+        const date = new Date().setDate(new Date().getDate() + 6);
+
+        // console.log(date);
+        // console.log(new Date(date));
+
+        localStorage.setItem('timestamp_sanskrit_full', JSON.stringify({
+          value: "string",
+          expDate: date,
+        }))
+
+        fetchdata(API_hisory_paper);
+      } else if(localStorage.getItem('data_sanskrit_full')) {
+        const object = JSON.parse(localStorage.getItem('data_sanskrit_full'))
+        setData(object.data)
+        document.getElementById("loader").classList.add("hidden");
+        document.getElementById("parent").classList.remove("hidden");
+        document.getElementById("explore").classList.remove("hidden");
+        document.getElementById("footer").classList.remove("hidden");
+      }
+
+    } else {
+
+      //Adding timestamp
+      const date = new Date().setDate(new Date().getDate() + 6);
+
+      // console.log(date);
+      // console.log(new Date(date));
+
+      localStorage.setItem('timestamp_sanskrit_full', JSON.stringify({
+        value: "string",
+        expDate: date,
+      }))
+
+      fetchdata(API_hisory_paper);
+    }
+
+  }, []);
+
   const data_imp = [];
   for (var j = 0; j < data["length"]; j++) {
     data_imp.push(data[j]);
   }
 
 
-  useEffect(() => {
+  function HandleClick(paper_no, year) {
     topFunction();
-    fetchdata(API_hisory_paper);
-  }, []);
-
-  function HandleClick(login_state, paper_no, year) {
-    if (login_state === "not_logged_in") {
+    if (!localStorage.getItem("user_id")) {
       document.getElementById("forms_window").classList.remove("hidden");
       document.getElementById("forms_window").classList.add("opacity-90");
     } else {
@@ -61,8 +112,8 @@ function SanskritFullPapers() {
     }
   }
 
-  function handleSolution(login_state, paper_no, year) {
-    if (login_state === "not_logged_in") {
+  function handleSolution(paper_no, year) {
+    if (!localStorage.getItem("user_id")) {
       document.getElementById("forms_window").classList.remove("hidden");
       document.getElementById("forms_window").classList.add("opacity-90");
     } else {
@@ -80,9 +131,9 @@ function SanskritFullPapers() {
         <div className="mr-4 md:mr-[4%] lg:mr-[4%]">
           <StaticTag />
         </div>
-
-        <BreadcrumbPages sub={"Sanskrit(Full)"} />
-
+        <div className="lg:px-8 md:px-6 sm:mx-4">
+          <BreadcrumbPages sub={"Sanskrit(Full)"} />
+        </div>
         <div id="parent" className="relative">
           <div id="go" className=" top-0 w-full mt-[50px]">
             {/* <div className="w-[50%] xl:ml-[24%] lg:ml-[15%] md:ml-[25%] ml-[28%] pb-[5%] pr-[10%]"> */}
@@ -101,11 +152,11 @@ function SanskritFullPapers() {
                     {/* <div className="lg:flex md:block lg:pl-[28%]"> */}
                     <div className="lg:flex w-full md:block">
                       {item.papers.map((item1, index1) => (
-                        <div className="flex xl:mr-[0%] lg:mr-[3%] md:mr-[0%] mr-[0%]">       
+                        <div className="flex xl:mr-[0%] lg:mr-[3%] md:mr-[0%] mr-[0%]">
                           <div className="block">
                             <button
                               onClick={(event) =>
-                                HandleClick("logged_in", index1, index)
+                                HandleClick(index1, index)
                               }
                               type="submit"
                               className="rounded-2xl xl:w-[300px] lg:w-[280px] md:w-[250px] w-[200px] text-white h-[200px] text-lg text-center font-semibold mt-[50px] bg-gradient-to-r from-[#054569] to-[#5591A9]"
@@ -115,7 +166,7 @@ function SanskritFullPapers() {
                             </button>
                             <button
                               onClick={(event) =>
-                                handleSolution("logged_in", index1, index)
+                                handleSolution(index1, index)
                               }
                               className="rounded-xl xl:w-[300px] lg:w-[280px] md:w-[250px] w-[200px] text-white h-[50px] text-center font-medium mt-[25px] bg-[#5591A9]"
                               key={index}
