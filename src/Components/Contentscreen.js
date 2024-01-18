@@ -57,14 +57,13 @@ function Contentscreen(props) {
 
     <div
       style={{
-        marginTop: '100px',
-        border: '1px solid rgba(0, 0, 0, 0.3)',
+        marginTop: '50px',
         display: 'flex',
         flexDirection: 'column',
         height: '100%',
       }}
     >
-      <div className='w-[100%] 2xl:ml-[25%] xl:ml-[25%] lg:ml-[5%] md:ml-[5%] sm:ml-[25%] ml-[3.8%]'>
+      <div className='2xl:ml-[25%] xl:ml-[25%] lg:ml-[15%] md:ml-[10%] sm:ml-[10%] ml-[5%] text-center'>
         <div
           style={{
             alignItems: 'center',
@@ -130,7 +129,7 @@ function Contentscreen(props) {
         <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
           <div
 
-            className='max-w-[50%] sm:w-[100%] 2xl:ml-[25%] xl:ml-[25%] md:ml-[5%] sm:ml-[25%] ml-[3.8%] text-center h-[1000px] overflow-scroll'
+            className='max-w-[100%] 2xl:w-[50%] xl:w-[50%] lg:w-[70%] md:w-[80%] sm:w-[100%] 2xl:ml-[25%] xl:ml-[25%] lg:ml-[15%] md:ml-[10%] sm:ml-[10%] sm:mr-[10%] ml-[5%] mr-[5%] text-center h-[1000px] overflow-scroll'
           >
 
             <Viewer  fileUrl={'https://padhai-planet.s3.ap-south-1.amazonaws.com/10/question_paper.pdf'} plugins={[zoomPluginInstance]} />
