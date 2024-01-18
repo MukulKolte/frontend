@@ -54,66 +54,71 @@ function Contentscreen(props) {
   // const {CurrentScale, ZoomIn, ZoomOut} = zoomPluginInstance;
 
   return (
+
     <div
       style={{
+        marginTop: '100px',
         border: '1px solid rgba(0, 0, 0, 0.3)',
         display: 'flex',
         flexDirection: 'column',
         height: '100%',
       }}
     >
-      <div
-        style={{
-          alignItems: 'center',
-          backgroundColor: '#eeeeee',
-          borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
-          display: 'flex',
-          justifyContent: 'center',
-          padding: '4px',
-        }}
-      >
-        <div style={{ padding: '0px 2px' }}>
-          <ZoomOut>
-            {(RenderZoomOutProps) => (
-              <button
-                style={{
-                  backgroundColor: '#357edd',
-                  border: 'none',
-                  borderRadius: '4px',
-                  color: '#ffffff',
-                  cursor: 'pointer',
-                  padding: '8px',
-                }}
-                onClick={RenderZoomOutProps.onClick}
-              >
-                Zoom out
-              </button>
-            )}
-          </ZoomOut>
-        </div>
-        <div style={{ padding: '0px 2px' }}>
-          <CurrentScale>
-            {(RenderCurrentScaleProps) => <>{`${Math.round(RenderCurrentScaleProps.scale * 100)}%`}</>}
-          </CurrentScale>
-        </div>
-        <div style={{ padding: '0px 2px' }}>
-          <ZoomIn>
-            {(RenderZoomInProps) => (
-              <button
-                style={{
-                  backgroundColor: '#357edd',
-                  border: 'none',
-                  borderRadius: '4px',
-                  color: '#ffffff',
-                  cursor: 'pointer',
-                  padding: '8px',
-                }}
-                onClick={RenderZoomInProps.onClick}
-              >
-                Zoom in
-              </button>
-            )}
-          </ZoomIn>
+      <div className='w-[100%] 2xl:ml-[25%] xl:ml-[25%] lg:ml-[5%] md:ml-[5%] sm:ml-[25%] ml-[3.8%]'>
+        <div
+          style={{
+            alignItems: 'center',
+            backgroundColor: '#eeeeee',
+            borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
+            display: 'flex',
+            justifyContent: 'center',
+            padding: '4px',
+            width: '50%'
+          }}
+        >
+          <div style={{ padding: '0px 2px' }}>
+            <ZoomOut>
+              {(RenderZoomOutProps) => (
+                <button
+                  style={{
+                    backgroundColor: '#357edd',
+                    border: 'none',
+                    borderRadius: '4px',
+                    color: '#ffffff',
+                    cursor: 'pointer',
+                    padding: '8px'
+                  }}
+                  onClick={RenderZoomOutProps.onClick}
+                >
+                  Zoom out
+                </button>
+              )}
+            </ZoomOut>
+          </div>
+          <div style={{ padding: '0px 2px' }}>
+            <CurrentScale>
+              {(RenderCurrentScaleProps) => <>{`${Math.round(RenderCurrentScaleProps.scale * 100)}%`}</>}
+            </CurrentScale>
+          </div>
+          <div style={{ padding: '0px 2px' }}>
+            <ZoomIn>
+              {(RenderZoomInProps) => (
+                <button
+                  style={{
+                    backgroundColor: '#357edd',
+                    border: 'none',
+                    borderRadius: '4px',
+                    color: '#ffffff',
+                    cursor: 'pointer',
+                    padding: '8px',
+                  }}
+                  onClick={RenderZoomInProps.onClick}
+                >
+                  Zoom in
+                </button>
+              )}
+            </ZoomIn>
+          </div>
         </div>
       </div>
       <div
@@ -125,10 +130,10 @@ function Contentscreen(props) {
         <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
           <div
 
-            className='max-w-[50%] mt-[5%] ml-[25%] mt-[25px] text-center h-[1000px] overflow-scroll'
+            className='max-w-[50%] sm:w-[100%] 2xl:ml-[25%] xl:ml-[25%] md:ml-[5%] sm:ml-[25%] ml-[3.8%] text-center h-[1000px] overflow-scroll'
           >
 
-            <Viewer className='' fileUrl={'https://padhai-planet.s3.ap-south-1.amazonaws.com/10/question_paper.pdf'} plugins={[zoomPluginInstance]} />
+            <Viewer  fileUrl={'https://padhai-planet.s3.ap-south-1.amazonaws.com/10/question_paper.pdf'} plugins={[zoomPluginInstance]} />
           </div>
         </Worker>
       </div>
