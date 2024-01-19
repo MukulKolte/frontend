@@ -45,15 +45,16 @@ function Science2Papers() {
     topFunction();
 
     const timestamp = localStorage.getItem('timestamp_science_2');
-    console.log(timestamp)
+    const data_science_2 = localStorage.getItem('data_science_2');
 
-    if (timestamp) {
+    if (timestamp && data_science_2) {
 
       const check = (new Date()).getDate() > JSON.parse(timestamp).expDate;
 
       if (check) {
 
         localStorage.removeItem('timestamp_science_2');
+        localStorage.removeItem('data_science_2');
 
         //Adding timestamp
         const date = new Date().setDate(new Date().getDate() + 6);
@@ -192,7 +193,7 @@ function Science2Papers() {
 
           <div
             id="que_paper_screen"
-            className="absolute top-0 w-full hidden pb-[20px]"
+            className="absolute top-0 md:w-[100%] sm:w-[100%] w-[100%] hidden pb-[20px]"
           >
             <Contentscreen q_data={que_data} />
           </div>

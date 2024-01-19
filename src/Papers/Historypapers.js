@@ -45,15 +45,16 @@ function HistoryPapers() {
     topFunction();
 
     const timestamp = localStorage.getItem('timestamp_history');
-    console.log(timestamp)
+    const data_history = localStorage.getItem('data_history');
 
-    if (timestamp) {
+    if (timestamp && data_history) {
 
       const check = (new Date()).getDate() > JSON.parse(timestamp).expDate;
 
       if (check) {
 
         localStorage.removeItem('timestamp_history');
+        localStorage.removeItem('data_history');
 
         //Adding timestamp
         const date = new Date().setDate(new Date().getDate() + 6);
@@ -192,7 +193,7 @@ function HistoryPapers() {
 
           <div
             id="que_paper_screen"
-            className="absolute top-0 w-full hidden pb-[20px]"
+            className="absolute top-0 md:w-[100%] sm:w-[100%] w-[100%] hidden pb-[20px]"
           >
             <Contentscreen q_data={que_data} />
           </div>

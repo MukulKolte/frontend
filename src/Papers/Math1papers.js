@@ -45,15 +45,16 @@ function Math1Papers() {
     topFunction();
 
     const timestamp = localStorage.getItem('timestamp_math_1');
-    console.log(timestamp)
+    const data_math_1 = localStorage.getItem('data_math_1');
 
-    if (timestamp) {
+    if (timestamp && data_math_1) {
 
       const check = (new Date()).getDate() > JSON.parse(timestamp).expDate;
 
       if (check) {
 
         localStorage.removeItem('timestamp_math_1');
+        localStorage.removeItem('data_math_1');
 
         //Adding timestamp
         const date = new Date().setDate(new Date().getDate() + 6);
@@ -191,7 +192,7 @@ function Math1Papers() {
 
           <div
             id="que_paper_screen"
-            className="absolute top-0 w-full hidden pb-[20px]"
+            className="absolute top-0 md:w-[100%] sm:w-[100%] w-[100%] hidden pb-[20px]"
           >
             <Contentscreen q_data={que_data} />
           </div>
