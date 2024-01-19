@@ -45,15 +45,16 @@ function HindiFullPapers() {
     topFunction();
 
     const timestamp = localStorage.getItem('timestamp_hindi_full');
-    console.log(timestamp)
+    const data_hindi_full = localStorage.getItem('data_hindi_full');
 
-    if (timestamp) {
+    if (timestamp && data_hindi_full) {
 
       const check = (new Date()).getDate() > JSON.parse(timestamp).expDate;
 
       if (check) {
 
         localStorage.removeItem('timestamp_hindi_full');
+        localStorage.removeItem('data_hindi_full');
 
         //Adding timestamp
         const date = new Date().setDate(new Date().getDate() + 6);
@@ -192,7 +193,7 @@ function HindiFullPapers() {
 
           <div
             id="que_paper_screen"
-            className="absolute top-0 w-full hidden pb-[20px]"
+            className="absolute top-0 md:w-[100%] sm:w-[100%] w-[100%] hidden pb-[20px]"
           >
             <Contentscreen q_data={que_data} />
           </div>

@@ -10,7 +10,7 @@ import logoo from "../Static/Padhaiplanet-logo.png";
 function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
   // console.log("local", localStorage.getItem("user_id"))
-  const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("user_id") === "10201");
+  const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("user_id"));
   const navigate = useNavigate();
 
   const toggleMenu = () => {
@@ -28,7 +28,7 @@ function Navbar() {
 
   const handleLogout = () => {
     axios
-      .post("https://padhaiplanet-backend.onrender.com/v1/logout", {"user_id": "1"})
+      .post("http://13.127.101.77/api/v1/logout", {"user_id": localStorage.getItem("user_id")})
       .then((response) => {
         console.log(response);
         localStorage.removeItem("user_id");
@@ -44,7 +44,7 @@ function Navbar() {
 
 
   return (
-    <div className="flex items-center justify-between w-full lg:px-8 py-4 gradient-bg sm:mx-4">
+    <div className="flex items-center justify-between w-full lg:px-8 py-4 gradient-bg ">
       <div className="flex items-center">
         <button onClick={event => (redirectHome())}><img src={logoo} alt="Logo" className="h-20 " /></button>
         <h1 className="text-white sm:text-6xl text-3xl font-bold text-center justify-center">

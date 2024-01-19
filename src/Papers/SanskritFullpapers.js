@@ -45,15 +45,16 @@ function SanskritFullPapers() {
     topFunction();
 
     const timestamp = localStorage.getItem('timestamp_sanskrit_full');
-    console.log(timestamp)
+    const data_sanskrit_full = localStorage.getItem('data_sanskrit_full');
 
-    if (timestamp) {
+    if (timestamp && data_sanskrit_full) {
 
       const check = (new Date()).getDate() > JSON.parse(timestamp).expDate;
 
       if (check) {
 
         localStorage.removeItem('timestamp_sanskrit_full');
+        localStorage.removeItem('data_sanskrit_full');
 
         //Adding timestamp
         const date = new Date().setDate(new Date().getDate() + 6);
@@ -192,7 +193,7 @@ function SanskritFullPapers() {
 
           <div
             id="que_paper_screen"
-            className="absolute top-0 w-full hidden pb-[20px]"
+            className="absolute top-0 md:w-[100%] sm:w-[100%] w-[100%] hidden pb-[20px]"
           >
             <Contentscreen q_data={que_data} />
           </div>
